@@ -31,8 +31,6 @@ app.get("/api/:tables?", function (req, res) {
 app.post("/api/new", function (req, res) {
     var newTable = req.body;
 
-    newTable.routeName = newTable.name;
-
     console.log(newTable);
 
     if (reservations.length > 5) {
