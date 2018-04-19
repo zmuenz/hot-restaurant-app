@@ -77,6 +77,24 @@
 
   </div>
 
+  <script type="text/javascript">
+    $("#submit").on("click", function (event) {
+    event.preventDefault();
+    var newTable = {
+        name: $("#reserve-name").val().trim(),
+        phone: $("#reserve-phone").val().trim(),
+        email: $("#reserve-email").val().trim(),
+        uniqueID: $("#reserve-id").val().trim()
+    };
+
+    // Question: What does this code do??
+    $.post("/api/new", newTable)
+        .then(function (data) {
+            console.log(data);
+            alert("Adding character...");
+        });
+    });
+  </script>
 </body>
 </html>
 

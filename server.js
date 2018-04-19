@@ -46,7 +46,7 @@ app.post("/api/new", function (req, res) {
 
 // Create a set of routes for displaying the HTML pages
 app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "Index.html"));
 });
 
 app.get("/reservation", function (req, res) {
@@ -59,21 +59,4 @@ app.get("/tables", function (req, res) {
 
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
-});
-
-$("#submit").on("click", function (event) {
-    event.preventDefault();
-    var newTable = {
-        name: $("#reserve-name").val().trim(),
-        phone: $("#reserve-phone").val().trim(),
-        email: $("#reserve-email").val().trim(),
-        uniqueID: $("#reserve-id").val().trim()
-    };
-
-    // Question: What does this code do??
-    $.post("/api/new", newTable)
-        .then(function (data) {
-            console.log(data);
-            alert("Adding character...");
-        });
 });
