@@ -46,28 +46,28 @@ app.post("/api/new", function (req, res) {
 
 // Create a set of routes for displaying the HTML pages
 app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "home.html"));
+    res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.get("/reservation", function (req, res) {
-    res.sendFile(path.join(__dirname, "reseration.html"));
+    res.sendFile(path.join(__dirname, "reservation-page.html"));
 });
 
 app.get("/tables", function (req, res) {
-    res.sendFile(path.join(__dirname, "tables.html"));
+    res.sendFile(path.join(__dirname, "reswait.html"));
 });
 
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
 });
 
-$("#submit-btn").on("click", function (event) {
+$("#submit").on("click", function (event) {
     event.preventDefault();
     var newTable = {
-        name: $("#name").val().trim(),
-        phone: $("#phone").val().trim(),
-        email: $("#email").val().trim(),
-        uniqueID: $("#UniqueID").val().trim()
+        name: $("#reserve-name").val().trim(),
+        phone: $("#reserve-phone").val().trim(),
+        email: $("#reserve-email").val().trim(),
+        uniqueID: $("#reserve-id").val().trim()
     };
 
     // Question: What does this code do??
