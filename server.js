@@ -6,10 +6,8 @@ var app = express();
 var PORT = process.env.PORT || 3600;
 
 // Create a few array variables that will hold the data
-var data = {
-    reservations: [],
-    waitList: []
-};
+var reservations = [];
+var waitList = [];
 
 var visitorCount = 0;
 
@@ -37,10 +35,10 @@ app.post("/api/new", function (req, res) {
 
     console.log(newTable);
 
-    if (data.reservations.length > 5) {
-        data.waitList.push(newTable);
+    if (reservations.length > 5) {
+        waitList.push(newTable);
     } else {
-        data.reservations.push(newTable);
+        reservations.push(newTable);
     }
 });
 
